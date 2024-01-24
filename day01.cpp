@@ -22,7 +22,7 @@ int main(void){
     int m9=30;
     int m10=31;
     int m11=30;
-    int m12=28;
+    int m12=31;
 
   
     cin>>month;
