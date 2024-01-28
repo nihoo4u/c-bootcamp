@@ -1,61 +1,68 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
-class Account{
+const double pi=3.141592;
+class Circle{
     private:
-        int money;
-        static int count;
+        double radius;
+        static int base;
     public:
-        Account(int x);
-        ~Account();
-        int add_money(int x);
-        int subtract_money(int x);
-        int get_money();
-        static int get_count();
-        void print_money();
-
-        
-
-
+        Circle(double radius);
+        Circle(const Circle& x);
+        ~Circle();
+        static double get_base();
+        double get_radius();
+        double get_area();
+        double get_perimeter();
+        void setter();
 };
-int Account::get_count(){
-    return count;
+Circle::Circle(double x):radius(x){
+    base++;
+}
+Circle::Circle(const Circle& x):radius(x.radius){
+    base++;
+
+    cout<<"make the circle"<<get_base()<<endl;
+}
+Circle::~Circle(){
+    cout<<"finish the circle"<<endl;
+}
+double Circle::get_base(){
+    return base;
 }
 
-Account::Account(int x):money(x){
-    cout<<"Account를 시작합니다."<<endl;
+double Circle::get_radius(){
+    return radius;
 }
-int Account::add_money(int x){
-    count++;
-    money+=x;
-    return money;
+double Circle::get_area(){
+    return pi*radius*radius;
+
 }
-int Account::subtract_money(int x){
-    count++;
-    money-=x;
-    return money;
+double Circle::get_perimeter(){
+    return 2*pi*radius;
+
 }
-int Account::get_money(){
-    return money;
+void Circle::setter(){
+    radius*=2;
 }
 
-void Account::print_money(){
-    cout<<money<<endl;
-}
-Account::~Account(){
-    count--;
-}
-int Account::count=0;
+int Circle::base=0;
+
+
 int main(){
-    Account account1(50);
-    cout<<"account1의 잔고는"<<account1.get_money()<<endl;
-    Account account2(34);
-    cout<<"account2의 잔고는"<<account2.get_money()<<endl;
-    account2.add_money(100);
-    cout<<"account2의 잔고는"<<account2.get_money()<<endl;
-    account2.add_money(100);
-    cout<<"account2의 잔고는"<<account2.get_money()<<endl;
+    double x;
+    cin>>x;
+    Circle circle1(x);
+    cout<<fixed<<setprecision(3)<<endl;
+    cout<<"Radius of Circle" <<Circle::get_base()<<"  "<<circle1.get_radius()<<endl;
+    cout<<"Area of Circle"<<Circle::get_base()<<"  "<<circle1.get_area()<<endl;
+    cout<<"Perimeter of Circle"<<Circle::get_base()<<"  "<<circle1.get_perimeter()<<endl;
+    circle1.setter();
 
-    cout<<"총 거래 내역은 : "<<Account::get_count()<<"입니다";
+    Circle circle2(circle1);
+    circle2.setter();
+    cout<<"periemeter of Circle"<<Circle::get_base()<<"  "<<circle1.get_radius()<<endl;
 
-    
+    cout<<"periemeter of Circle"<<Circle::get_base()<<"  "<<circle2.get_radius()<<endl;
+
 }
