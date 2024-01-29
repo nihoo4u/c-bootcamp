@@ -5,17 +5,23 @@ using namespace std;
 
 
 int main(){
-    int score=92;
-    int& rscore=score;
-    cout<<"score: "<<score<<endl;
-    cout<<"rscore: "<<rscore<<endl;
-   
-    int num=80;
-    rscore=num;
-   
-    cout<<"rscore: "<<rscore<<endl;
-    cout<<"score: "<<score<<endl;
-    cout<<endl;
+    int sum=0;
+
+    int x[5]={1,2,3,4,5};
+    int* t=x;
+
+    for(int i=0;i<5;i++){
+        sum+=*(t++);
+    }
+    cout<<sum<<endl;    
+    }
 
 
-}
+   
+   
+
+
+
+
+
+
