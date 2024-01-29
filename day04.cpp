@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void get(int x[2][4],int y[4][2],int& t);
+void get(int x[][4],int y[][2],int t);
 int main(){
     int sum=0;
 
@@ -16,9 +16,10 @@ int main(){
         }
         cout<<endl;
     }
+    cout<<"sum: "<<sum<<endl;
     }
 
-void get(int x[2][4],int y[4][2],int& t){
+void get(int x[2][4],int y[][2],int t){
     for(int i=0;i<2;i++){
         for(int j=0;j<4;j++){
             y[j][i]=x[i][j];
