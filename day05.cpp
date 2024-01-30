@@ -6,27 +6,33 @@ using namespace std;
 
 
 int main(){
-    int row_num;
-    int col_num;
-    cin>>row_num;
-    cin>>col_num;
-    int** p=new int* [row_num];
-    for(int i=0;i<col_num;i++){
-        p[i]=new int[col_num];
+    int capacity;
+    int number;
+    cin>>capacity;
+    int *num_list=new int[capacity];
+    for(int i=0;i<capacity;i++){
+        cin>>number;
+        *(num_list+i)=number;
     }
-    for(int i=0;i<row_num;i++){
-        for(int j=0;j<col_num;j++){
-            cout<<"p[i[[j]: "<<p[i][j]<<" ";
+    int small,big;
+    small=1000000;
+    big=0;
+    for(int i=0;i<capacity;i++){
+        if (*(num_list+i)<small){
+            small=*(num_list+i);
         }
-        cout<<endl;
-    } 
-      
+        if (*(num_list+i)>big){
+            big=*(num_list+i);
+        }
+
+
+    }
+    cout<<"smallest: "<<small<<endl;
+    cout<<"biggest: "<<big<<endl;
 
     
-    
-    
+
 }
-
 
 
 
